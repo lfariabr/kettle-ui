@@ -9,7 +9,8 @@ export function Field({
   className,
   ...props
 }: { label: string; hint?: string; error?: string } & ComponentProps<"input">) {
-  const id = useId();
+  const generatedId = useId();
+  const id = props.id ?? generatedId;
   const note = error ?? hint;
   return (
     <div className={cn("flex w-full flex-col gap-2", className)}>
